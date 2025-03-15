@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.rating-container {
+    position: relative;
+    width: 750px; 
+    height: 150px;
+    background: url('warna.png') no-repeat center;
+    background-size: cover;
+
+    mask-image: url('full.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+}
+
+.rating-overlay {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; 
+    height: 100%;
+    background: linear-gradient(to right, #e5ba41 0%, #e5ba41 100%);
+    transition: width 1s ease-in-out;
+    pointer-events: none;
+}

@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    position: absolute;
+}
+
+label {
+    background-color: rgb(189, 143, 150);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.partikel {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(189, 143, 150);
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+   
+}
+
+.p0 { top: 5px; left: 10px; }
+.p1 { top: 5px; left: 50px; }
+.p2 { top: 40px; left: 20px; }
+.p3 { top: 10px; left: 140px; }
+.p4 { top: 50px; left: 50px; }
+.p5 { top: 30px; left: 170px; }
+.p6 { top: 80px; left: 90px; }
+.p7 { top: 80px; left: 140px; }
+.p8 { top: 80px; left: 40px; }
+
+#ch:checked ~ .partikel {
+       animation: boom 0.4s linear;
+}
+
+
+@keyframes boom {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}

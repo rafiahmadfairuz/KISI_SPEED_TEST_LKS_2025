@@ -1,0 +1,114 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.rate {
+    display: inline-block;
+    border: 0;
+}
+.rate > input {
+    display: none;
+}
+.rate > label {
+    float: right;
+    transition: color 0.3s ease-in-out;
+}
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    font-size: 100px;
+    font-family: FontAwesome;
+    content: "\f005"; 
+}
+
+.rate .half:before {
+    content: "\f089"; 
+    position: absolute;
+    padding-right: 0;
+}
+
+input:checked ~ label,
+label:hover, label:hover ~ label { 
+    color: #73B100;  
+    transition: color 0.3s ease-in-out;
+} 
+
+input:checked + label:hover, input:checked ~ label:hover, 
+input:checked ~ label:hover ~ label, 
+label:hover ~ input:checked ~ label  { 
+    color: #A6E72D;  
+}
+
+.container {
+    border: 1px solid;
+    position: absolute;
+    background-image: url("stars.png");
+    width: 800px;
+    background-position: center;
+    height: 500px;
+    background-repeat: no-repeat;
+}
+.container::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: blue; 
+ 
+   
+    mask-image: url("stars.png"); 
+    /* 
+        `mask-image` adalah versi utama (standar) yang digunakan di browser modern selain WebKit.
+        Browser seperti Firefox dan Edge juga akan membaca properti ini.
+        Sama seperti `-webkit-mask-image`, fungsinya adalah menggunakan gambar sebagai masker.
+    */
+
+    mask-repeat: no-repeat;
+    /* 
+        Sama seperti `-webkit-mask-repeat`, ini memastikan gambar bintang **tidak diulang** dalam elemen.
+    */
+     /* 
+        `mask-repeat` menentukan apakah gambar masking akan diulang (repeated) atau tidak.
+        Kita menggunakan `no-repeat` karena kita hanya ingin satu gambar bintang sebagai masker, 
+        bukan diulang-ulang di seluruh elemen.
+    */
+
+
+    mask-position: center;
+    /* 
+        Sama seperti `-webkit-mask-position`, ini menempatkan gambar mask tepat di tengah elemen.
+    */
+    /* 
+        `mask-position` menentukan posisi gambar mask dalam elemen.
+        Kita set ke `center`, supaya gambar bintang berada tepat di tengah elemen `.container::before`.
+        Jika diubah misalnya ke `top left`, maka bintang akan bergeser ke sudut kiri atas.
+    */
+
+    mask-size: contain;
+    /* 
+        Sama seperti `-webkit-mask-size`, ini memastikan gambar bintang **tetap proporsional**
+        dan tidak terpotong.
+    */
+     /* 
+        `mask-size` mengatur ukuran gambar mask.
+        `contain` berarti gambar akan diubah ukurannya agar **seluruh gambar muat** di dalam elemen, 
+        tanpa memotong bagian mana pun.
+        
+        Alternatif lainnya:
+        - `cover` → Memperbesar gambar agar menutupi seluruh elemen, tetapi bisa memotong bagian gambar.
+        - `auto` → Menggunakan ukuran asli dari gambar.
+
+        Kita pakai `contain` supaya gambar tetap proporsional tanpa kehilangan bagian mana pun.
+    */
+
+}
+
